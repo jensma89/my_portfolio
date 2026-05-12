@@ -1,4 +1,5 @@
 // lib/sections/certificates_section.dart
+// Certificates card — scrollable list with icon, title, and locale-aware download button.
 
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -17,20 +18,12 @@ class CertificatesSection extends StatelessWidget {
 
     final certs = [
       _CertItem(
-        titleEN: 'Python Advanced Developer',
-        titleDE: 'Python für Fortgeschrittene',
-        issuer: 'Coursera',
+        titleEN: 'Certificate of Completion',
+        titleDE: 'Abschlusszertifikat',
+        issuer: 'IT-Weiterbildung',
         year: '2024',
-        downloadUrlEN: 'assets/certificates/cert_python_en.pdf',
-        downloadUrlDE: 'assets/certificates/cert_python_de.pdf',
-      ),
-      _CertItem(
-        titleEN: 'Docker & Containers',
-        titleDE: 'Docker & Container-Technologien',
-        issuer: 'Udemy',
-        year: '2023',
-        downloadUrlEN: 'assets/certificates/cert_docker_en.pdf',
-        downloadUrlDE: 'assets/certificates/cert_docker_de.pdf',
+        downloadUrlEN: 'assets/certificates/jens_mayer_CoC_EN.pdf',
+        downloadUrlDE: 'assets/certificates/jens_mayer_CoC_DE.pdf',
       ),
     ];
 
@@ -38,7 +31,7 @@ class CertificatesSection extends StatelessWidget {
       semanticLabel: isDE ? 'Zertifikate' : 'Certificates',
       clipSize: 14,
       scrollable: true,
-      maxHeight: 360,
+      maxHeight: 320,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -63,6 +56,7 @@ class _CertItem {
     required this.downloadUrlEN,
     required this.downloadUrlDE,
   });
+
   final String titleEN;
   final String titleDE;
   final String issuer;
@@ -73,6 +67,7 @@ class _CertItem {
 
 class _CertTile extends StatelessWidget {
   const _CertTile({required this.cert, required this.isDE});
+
   final _CertItem cert;
   final bool isDE;
 
@@ -89,7 +84,7 @@ class _CertTile extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Semantics(
-              label: 'Certificate image',
+              label: 'Certificate badge',
               image: true,
               child: Container(
                 width: 52,
@@ -106,8 +101,6 @@ class _CertTile extends StatelessWidget {
                   color: AppColors.accentBlue,
                   size: 28,
                 ),
-                // TODO: replace with real image:
-                // child: Image.asset('assets/certificates/cert_preview.png', fit: BoxFit.cover),
               ),
             ),
             const SizedBox(width: 14),
@@ -129,7 +122,9 @@ class _CertTile extends StatelessWidget {
               label: isDE ? 'Laden' : 'Download',
               onPressed: () async {
                 final uri = Uri.parse(downloadUrl);
-                if (await canLaunchUrl(uri)) await launchUrl(uri);
+                if (await canLaunchUrl(uri)) {
+                  await launchUrl(uri, mode: LaunchMode.externalApplication);
+                }
               },
             ),
           ],
