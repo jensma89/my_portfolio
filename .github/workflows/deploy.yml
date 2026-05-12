@@ -1,4 +1,4 @@
-name: Deploy to Infomaniak
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -16,13 +16,10 @@ jobs:
           channel: 'stable'
 
       - run: flutter pub get
-      - run: flutter build web --release --renderer html
+      - run: flutter build web --release --base-href /my_portfolio/
 
-      - name: Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: build/web/
-          server-dir: /
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: build/web
