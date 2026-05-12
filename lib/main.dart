@@ -1,3 +1,5 @@
+// main.dart
+// App-Root, Theme and Local State
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'My Portfolio',
       theme: ThemeData(
         // This is the theme of your application.
         //
