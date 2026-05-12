@@ -44,7 +44,10 @@ class _WideLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       padding: const EdgeInsets.all(20),
-      child: Column(
+      child: Center(
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 1400),
+          child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Row(
@@ -71,7 +74,7 @@ class _WideLayout extends StatelessWidget {
                     AboutSection(locale: locale),
                     const SizedBox(height: _kGap),
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      padding: const EdgeInsets.symmetric(horizontal: 19),
                       child: LanguagesSection(locale: locale),
                     ),
                   ],
@@ -98,6 +101,8 @@ class _WideLayout extends StatelessWidget {
           ),
           FooterSection(locale: locale),
         ],
+      ),
+        ),
       ),
     );
   }

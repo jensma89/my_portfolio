@@ -38,14 +38,14 @@ class LanguagesSection extends StatelessWidget {
         nameDE: 'Braille',
         levelEN: 'Basic',
         levelDE: 'Grundkenntnisse',
-        progress: 0.2,
+        progress: 0.3,
       ),
     ];
 
     return PortfolioCard(
       semanticLabel: isDE ? 'Sprachen' : 'Languages',
       clipSize: 14,
-      padding: const EdgeInsets.fromLTRB(20, 14, 20, 18),
+      padding: const EdgeInsets.fromLTRB(23, 14, 23, 18),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
@@ -57,6 +57,7 @@ class LanguagesSection extends StatelessWidget {
           const SizedBox(height: 16),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: items
                 .map((item) => _LangCircle(item: item, isDE: isDE))
                 .toList(),
@@ -128,16 +129,19 @@ class _LangCircle extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 8),
-          Text(
-            level,
-            style: GoogleFonts.inter(
-              fontSize: 11,
-              color: Theme.of(context)
-                  .colorScheme
-                  .onSurface
-                  .withValues(alpha: 0.6),
+          SizedBox(
+            width: 90,
+            child: Text(
+              level,
+              style: GoogleFonts.inter(
+                fontSize: 11,
+                color: Theme.of(context)
+                    .colorScheme
+                    .onSurface
+                    .withValues(alpha: 0.6),
+              ),
+              textAlign: TextAlign.center,
             ),
-            textAlign: TextAlign.center,
           ),
         ],
       ),
