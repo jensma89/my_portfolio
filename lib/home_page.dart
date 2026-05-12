@@ -84,10 +84,8 @@ class _WideLayout extends StatelessWidget {
             ],
           ),
           const SizedBox(height: _kGap),
-          Align(
-            alignment: Alignment.centerLeft,
-            child: FractionallySizedBox(
-              widthFactor: 0.5,
+          Center(
+            child: IntrinsicWidth(
               child: ContactSection(locale: locale),
             ),
           ),
@@ -122,7 +120,11 @@ class _NarrowLayout extends StatelessWidget {
           const SizedBox(height: _kGap),
           ProjectsSection(locale: locale),
           const SizedBox(height: _kGap),
-          ContactSection(locale: locale),
+          Center(
+            child: IntrinsicWidth(
+              child: ContactSection(locale: locale),
+            ),
+          ),
           FooterSection(locale: locale),
         ],
       ),

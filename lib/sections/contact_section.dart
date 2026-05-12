@@ -46,14 +46,7 @@ class ContactSection extends StatelessWidget {
             isDE ? 'Kontakt' : 'Contact',
             style: AppTextStyles.sectionHeading(context),
           ),
-          const SizedBox(height: 6),
-          Text(
-            isDE
-                ? 'Erreichbar per E-Mail oder über soziale Plattformen.'
-                : 'Reach me via email or on social platforms.',
-            style: AppTextStyles.body(context),
-          ),
-          const SizedBox(height: 16),
+          const SizedBox(height: 14),
           Wrap(
             spacing: 12,
             runSpacing: 12,

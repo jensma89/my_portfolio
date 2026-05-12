@@ -1,7 +1,8 @@
 // lib/sections/languages_section.dart
-// Languages card — German (native), English (C1), Braille (basic) with progress bars.
+// Languages card — circles with language abbreviation inside and level below.
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../components/portfolio_card.dart';
 import '../theme/theme.dart';
 
@@ -16,6 +17,7 @@ class LanguagesSection extends StatelessWidget {
 
     const items = [
       _LangItem(
+        abbr: 'DE',
         nameEN: 'German',
         nameDE: 'Deutsch',
         levelEN: 'Native',
@@ -23,13 +25,15 @@ class LanguagesSection extends StatelessWidget {
         progress: 1.0,
       ),
       _LangItem(
+        abbr: 'EN',
         nameEN: 'English',
         nameDE: 'Englisch',
-        levelEN: 'C1 – Advanced',
-        levelDE: 'C1 – Fortgeschritten',
-        progress: 0.85,
+        levelEN: 'B2',
+        levelDE: 'B2',
+        progress: 0.7,
       ),
       _LangItem(
+        abbr: 'BR',
         nameEN: 'Braille',
         nameDE: 'Braille',
         levelEN: 'Basic',
@@ -41,7 +45,7 @@ class LanguagesSection extends StatelessWidget {
     return PortfolioCard(
       semanticLabel: isDE ? 'Sprachen' : 'Languages',
       clipSize: 14,
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
+      padding: const EdgeInsets.fromLTRB(20, 14, 20, 18),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
@@ -50,8 +54,13 @@ class LanguagesSection extends StatelessWidget {
             isDE ? 'Sprachen' : 'Languages',
             style: AppTextStyles.sectionHeading(context),
           ),
-          const SizedBox(height: 10),
-          ...items.map((item) => _LangBar(item: item, isDE: isDE)),
+          const SizedBox(height: 16),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: items
+                .map((item) => _LangCircle(item: item, isDE: isDE))
+                .toList(),
+          ),
         ],
       ),
     );
@@ -60,6 +69,7 @@ class LanguagesSection extends StatelessWidget {
 
 class _LangItem {
   const _LangItem({
+    required this.abbr,
     required this.nameEN,
     required this.nameDE,
     required this.levelEN,
@@ -67,6 +77,7 @@ class _LangItem {
     required this.progress,
   });
 
+  final String abbr;
   final String nameEN;
   final String nameDE;
   final String levelEN;
@@ -74,8 +85,8 @@ class _LangItem {
   final double progress;
 }
 
-class _LangBar extends StatelessWidget {
-  const _LangBar({required this.item, required this.isDE});
+class _LangCircle extends StatelessWidget {
+  const _LangCircle({required this.item, required this.isDE});
 
   final _LangItem item;
   final bool isDE;
@@ -87,31 +98,47 @@ class _LangBar extends StatelessWidget {
 
     return Semantics(
       label: '$name: $level',
-      child: Padding(
-        padding: const EdgeInsets.only(bottom: 10),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          SizedBox(
+            width: 68,
+            height: 68,
+            child: Stack(
+              alignment: Alignment.center,
               children: [
-                Text(name, style: AppTextStyles.cardTitle(context)),
-                Text(level, style: AppTextStyles.small(context)),
+                CircularProgressIndicator(
+                  value: item.progress,
+                  strokeWidth: 5,
+                  backgroundColor: AppColors.accentBlue.withValues(alpha: 0.15),
+                  valueColor: const AlwaysStoppedAnimation<Color>(
+                    AppColors.accentBlue,
+                  ),
+                ),
+                Text(
+                  item.abbr,
+                  style: GoogleFonts.spaceGrotesk(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w700,
+                    color: Theme.of(context).colorScheme.onSurface,
+                  ),
+                ),
               ],
             ),
-            const SizedBox(height: 6),
-            ClipRRect(
-              borderRadius: BorderRadius.circular(4),
-              child: LinearProgressIndicator(
-                value: item.progress,
-                minHeight: 6,
-                backgroundColor: AppColors.accentBlue.withValues(alpha: 0.15),
-                valueColor:
-                    const AlwaysStoppedAnimation<Color>(AppColors.accentBlue),
-              ),
+          ),
+          const SizedBox(height: 8),
+          Text(
+            level,
+            style: GoogleFonts.inter(
+              fontSize: 11,
+              color: Theme.of(context)
+                  .colorScheme
+                  .onSurface
+                  .withValues(alpha: 0.6),
             ),
-          ],
-        ),
+            textAlign: TextAlign.center,
+          ),
+        ],
       ),
     );
   }

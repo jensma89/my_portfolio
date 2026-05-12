@@ -38,11 +38,11 @@ class AboutSection extends StatelessWidget {
                 image: true,
                 child: Image.asset(
                   'assets/images/profile_picture_no_background.png',
-                  height: 84,
+                  height: 104,
                   fit: BoxFit.contain,
                 ),
               ),
-              const SizedBox(width: 18),
+              const SizedBox(width: 26),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
