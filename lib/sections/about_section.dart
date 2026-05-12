@@ -38,7 +38,7 @@ class AboutSection extends StatelessWidget {
                 image: true,
                 child: CircleAvatar(
                   radius: 42,
-                  backgroundColor: AppColors.accentBlue.withOpacity(0.15),
+                  backgroundColor: AppColors.accentBlue.withValues(alpha: 0.15),
                   backgroundImage: const AssetImage(
                     'assets/images/profile_picture_no_background.png',
                   ),
@@ -72,8 +72,8 @@ class AboutSection extends StatelessWidget {
                         color: AppColors.accentBlue,
                       ),
                     ),
-                    backgroundColor: AppColors.accentBlue.withOpacity(0.1),
-                    side: BorderSide(color: AppColors.accentBlue.withOpacity(0.3)),
+                    backgroundColor: AppColors.accentBlue.withValues(alpha: 0.1),
+                    side: BorderSide(color: AppColors.accentBlue.withValues(alpha: 0.3)),
                     padding:
                         const EdgeInsets.symmetric(horizontal: 4, vertical: 0),
                     materialTapTargetSize: MaterialTapTargetSize.padded,

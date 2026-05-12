@@ -4,7 +4,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'buttons.dart';
-import '../theme/theme.dart';
 
 class PortfolioNavBar extends StatelessWidget implements PreferredSizeWidget {
   const PortfolioNavBar({

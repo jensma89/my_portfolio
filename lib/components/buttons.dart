@@ -10,7 +10,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../theme/theme.dart';
 
 // Primary accent button.
 class PrimaryButton extends StatelessWidget {
@@ -97,7 +96,7 @@ class IconToggleButton extends StatelessWidget {
             child: Icon(
               icon,
               size: 20,
-              color: isActive ? color : color.withOpacity(0.5),
+              color: isActive ? color : color.withValues(alpha: 0.5),
             ),
           ),
         ),
@@ -137,7 +136,7 @@ class LocaleChip extends StatelessWidget {
               color: isSelected ? color : Colors.transparent,
               borderRadius: BorderRadius.circular(4),
               border: Border.all(
-                color: isSelected ? color : color.withOpacity(0.4),
+                color: isSelected ? color : color.withValues(alpha: 0.4),
               ),
             ),
             child: Text(
@@ -193,7 +192,7 @@ class LinkButton extends StatelessWidget {
             ),
           ),
           style: OutlinedButton.styleFrom(
-            side: BorderSide(color: color.withOpacity(0.6)),
+            side: BorderSide(color: color.withValues(alpha: 0.6)),
             padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(6),

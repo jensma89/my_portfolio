@@ -17,7 +17,7 @@ class ProjectsSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDE = locale.languageCode == 'de';
 
-    final projects = [
+    const projects = [
       _Project(
         titleEN: 'Home Automation Hub',
         titleDE: 'Heimautomatisierungs-Hub',
@@ -25,8 +25,8 @@ class ProjectsSection extends StatelessWidget {
             'Self-hosted MQTT broker and web dashboard for managing IoT devices across a Raspberry Pi cluster.',
         descDE:
             'Selbst gehosteter MQTT-Broker mit Web-Dashboard zur Verwaltung von IoT-Geräten auf einem Raspberry-Pi-Cluster.',
-        tags: const ['Python', 'MQTT', 'Raspberry Pi', 'Linux'],
-        tagColors: const [
+        tags: ['Python', 'MQTT', 'Raspberry Pi', 'Linux'],
+        tagColors: [
           AppColors.badgePython,
           AppColors.badgeMQTT,
           AppColors.badgeRaspberryPi,
@@ -42,8 +42,8 @@ class ProjectsSection extends StatelessWidget {
             'Production-ready project template with Docker Compose, async SQLAlchemy, JWT auth, and CI/CD pipelines.',
         descDE:
             'Produktionsfertiges Projekttemplate mit Docker Compose, async SQLAlchemy, JWT-Auth und CI/CD-Pipelines.',
-        tags: const ['FastAPI', 'Docker', 'Python'],
-        tagColors: const [
+        tags: ['FastAPI', 'Docker', 'Python'],
+        tagColors: [
           AppColors.badgeFastAPI,
           AppColors.badgeDocker,
           AppColors.badgePython,
@@ -58,8 +58,8 @@ class ProjectsSection extends StatelessWidget {
             'Lightweight toolkit for Go microservices with structured logging, health checks, and graceful shutdown.',
         descDE:
             'Leichtgewichtiges Toolkit für Go-Microservices mit strukturiertem Logging, Health-Checks und Graceful Shutdown.',
-        tags: const ['Go', 'Docker', 'Linux'],
-        tagColors: const [
+        tags: ['Go', 'Docker', 'Linux'],
+        tagColors: [
           AppColors.badgeGo,
           AppColors.badgeDocker,
           AppColors.badgeLinux,
@@ -199,7 +199,7 @@ class _ProjectTile extends StatelessWidget {
                             color: Theme.of(context)
                                 .colorScheme
                                 .primary
-                                .withOpacity(0.6),
+                                .withValues(alpha: 0.6),
                           ),
                         ),
                       ),

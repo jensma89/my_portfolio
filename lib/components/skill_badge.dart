@@ -17,9 +17,9 @@ class SkillBadge extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
         decoration: BoxDecoration(
-          color: color.withOpacity(0.14),
+          color: color.withValues(alpha: 0.14),
           borderRadius: BorderRadius.circular(20),
-          border: Border.all(color: color.withOpacity(0.45), width: 1),
+          border: Border.all(color: color.withValues(alpha: 0.45), width: 1),
         ),
         child: Text(
           label,

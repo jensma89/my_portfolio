@@ -31,14 +31,14 @@ class AppTextStyles {
   static TextStyle body(BuildContext context) => GoogleFonts.inter(
         fontSize: 13,
         fontWeight: FontWeight.w400,
-        color: Theme.of(context).colorScheme.onSurface.withOpacity(0.85),
+        color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.85),
         height: 1.65,
       );
 
   static TextStyle small(BuildContext context) => GoogleFonts.inter(
         fontSize: 12,
         fontWeight: FontWeight.w400,
-        color: Theme.of(context).colorScheme.onSurface.withOpacity(0.55),
+        color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.55),
       );
 
   static TextStyle navLabel(BuildContext context) => GoogleFonts.spaceGrotesk(

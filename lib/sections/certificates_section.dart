@@ -16,7 +16,7 @@ class CertificatesSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDE = locale.languageCode == 'de';
 
-    final certs = [
+    const certs = [
       _CertItem(
         titleEN: 'Certificate of Completion',
         titleDE: 'Abschlusszertifikat',
@@ -90,10 +90,10 @@ class _CertTile extends StatelessWidget {
                 width: 52,
                 height: 52,
                 decoration: BoxDecoration(
-                  color: AppColors.accentBlue.withOpacity(0.1),
+                  color: AppColors.accentBlue.withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(6),
                   border: Border.all(
-                    color: AppColors.accentBlue.withOpacity(0.3),
+                    color: AppColors.accentBlue.withValues(alpha: 0.3),
                   ),
                 ),
                 child: const Icon(

@@ -41,7 +41,7 @@ class FooterSection extends StatelessWidget {
 
     final dimStyle = GoogleFonts.inter(
       fontSize: 12,
-      color: Theme.of(context).colorScheme.onSurface.withOpacity(0.45),
+      color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.45),
     );
 
     Widget footerLink({
@@ -67,7 +67,7 @@ class FooterSection extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
       child: Column(
         children: [
-          Divider(color: AppColors.accentBlue.withOpacity(0.2)),
+          Divider(color: AppColors.accentBlue.withValues(alpha: 0.2)),
           const SizedBox(height: 12),
           Wrap(
             alignment: WrapAlignment.center,

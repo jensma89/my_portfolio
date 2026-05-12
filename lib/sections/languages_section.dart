@@ -14,7 +14,7 @@ class LanguagesSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDE = locale.languageCode == 'de';
 
-    final items = [
+    const items = [
       _LangItem(
         nameEN: 'German',
         nameDE: 'Deutsch',
@@ -104,7 +104,7 @@ class _LangBar extends StatelessWidget {
               child: LinearProgressIndicator(
                 value: item.progress,
                 minHeight: 6,
-                backgroundColor: AppColors.accentBlue.withOpacity(0.15),
+                backgroundColor: AppColors.accentBlue.withValues(alpha: 0.15),
                 valueColor:
                     const AlwaysStoppedAnimation<Color>(AppColors.accentBlue),
               ),
