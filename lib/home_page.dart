@@ -55,8 +55,9 @@ class _WideLayout extends StatelessWidget {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
+                    const SizedBox(height: 18),
                     SkillsSection(locale: locale),
-                    const SizedBox(height: _kGap),
+                    const SizedBox(height: 28),
                     CertificatesSection(locale: locale),
                   ],
                 ),
@@ -79,7 +80,13 @@ class _WideLayout extends StatelessWidget {
               const SizedBox(width: _kGap),
               // Right column: Projects
               Expanded(
-                child: ProjectsSection(locale: locale),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const SizedBox(height: 20),
+                    ProjectsSection(locale: locale),
+                  ],
+                ),
               ),
             ],
           ),

@@ -36,10 +36,21 @@ class AboutSection extends StatelessWidget {
               Semantics(
                 label: 'Profile picture of Jens Mayer',
                 image: true,
-                child: Image.asset(
-                  'assets/images/profile_picture_no_background.png',
-                  height: 208,
-                  fit: BoxFit.contain,
+                child: Container(
+                  decoration: const BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Color(0x1F000000),
+                        blurRadius: 20,
+                        offset: Offset(12, 0),
+                      ),
+                    ],
+                  ),
+                  child: Image.asset(
+                    'assets/images/profile_picture_no_background.png',
+                    height: 208,
+                    fit: BoxFit.contain,
+                  ),
                 ),
               ),
               const SizedBox(width: 26),

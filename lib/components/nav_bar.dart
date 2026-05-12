@@ -27,8 +27,10 @@ class PortfolioNavBar extends StatelessWidget implements PreferredSizeWidget {
 
     return AppBar(
       automaticallyImplyLeading: false,
-      actions: [
-        Row(
+      leadingWidth: 116,
+      leading: Padding(
+        padding: const EdgeInsets.only(left: 12),
+        child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
             LocaleChip(
@@ -42,21 +44,22 @@ class PortfolioNavBar extends StatelessWidget implements PreferredSizeWidget {
               isSelected: isDE,
               onTap: isDE ? () {} : onLocaleToggle,
             ),
-            const SizedBox(width: 12),
-            LocaleChip(
-              label: 'Dark',
-              isSelected: isDarkMode,
-              onTap: isDarkMode ? () {} : onThemeToggle,
-            ),
-            const SizedBox(width: 4),
-            LocaleChip(
-              label: 'Light',
-              isSelected: !isDarkMode,
-              onTap: isDarkMode ? onThemeToggle : () {},
-            ),
-            const SizedBox(width: 12),
           ],
         ),
+      ),
+      actions: [
+        LocaleChip(
+          label: 'Dark',
+          isSelected: isDarkMode,
+          onTap: isDarkMode ? () {} : onThemeToggle,
+        ),
+        const SizedBox(width: 4),
+        LocaleChip(
+          label: 'Light',
+          isSelected: !isDarkMode,
+          onTap: isDarkMode ? onThemeToggle : () {},
+        ),
+        const SizedBox(width: 12),
       ],
     );
   }
