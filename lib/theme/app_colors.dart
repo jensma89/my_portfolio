@@ -1,2 +1,33 @@
-// app_colors.dart
-// All colors
+// lib/theme/app_colors.dart
+import 'package:flutter/material.dart';
+
+class AppColors {
+  AppColors._();
+
+  // Accent
+  static const Color accentBlue = Color(0xFF3A9BDC);
+  static const Color accentBlueLight = Color(0xFF6DB8E8);
+  static const Color accentBlueDark = Color(0xFF1E6FA8);
+
+  // Skill badge colors
+  static const Color badgeGreen = Color(0xFF27AE60);
+  static const Color badgePython = Color(0xFF3572A5);
+  static const Color badgeGo = Color(0xFF00ADD8);
+  static const Color badgeFastAPI = Color(0xFF009688);
+  static const Color badgeMQTT = Color(0xFF660066);
+  static const Color badgeDocker = Color(0xFF2496ED);
+  static const Color badgeRaspberryPi = Color(0xFFA22846);
+  static const Color badgeLinux = Color(0xFFFCC624);
+
+  // Dark theme
+  static const Color darkBackground = Color(0xFF1A1D23);
+  static const Color darkCard = Color(0xFF0F1117);
+  static const Color darkTextPrimary = Color(0xFFE8ECF0);
+  static const Color darkTextSecondary = Color(0xFF8A9BB0);
+
+  // Light theme
+  static const Color lightBackground = Color(0xFFF0F4F8);
+  static const Color lightCard = Color(0xFFFFFFFF);
+  static const Color lightTextPrimary = Color(0xFF1A2332);
+  static const Color lightTextSecondary = Color(0xFF4A5568);
+}
