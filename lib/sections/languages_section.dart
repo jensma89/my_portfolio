@@ -102,8 +102,8 @@ class _LangCircle extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           SizedBox(
-            width: 68,
-            height: 68,
+            width: 90,
+            height: 90,
             child: Stack(
               alignment: Alignment.center,
               children: [
@@ -116,12 +116,13 @@ class _LangCircle extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  item.abbr,
+                  isDE ? item.nameDE : item.nameEN,
                   style: GoogleFonts.spaceGrotesk(
-                    fontSize: 15,
+                    fontSize: 11,
                     fontWeight: FontWeight.w700,
                     color: Theme.of(context).colorScheme.onSurface,
                   ),
+                  textAlign: TextAlign.center,
                 ),
               ],
             ),

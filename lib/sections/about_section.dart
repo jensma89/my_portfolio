@@ -38,7 +38,7 @@ class AboutSection extends StatelessWidget {
                 image: true,
                 child: Image.asset(
                   'assets/images/profile_picture_no_background.png',
-                  height: 104,
+                  height: 208,
                   fit: BoxFit.contain,
                 ),
               ),

@@ -47,9 +47,8 @@ class ContactSection extends StatelessWidget {
             style: AppTextStyles.sectionHeading(context),
           ),
           const SizedBox(height: 14),
-          Wrap(
-            spacing: 12,
-            runSpacing: 12,
+          Row(
+            mainAxisSize: MainAxisSize.min,
             children: [
               LinkButton(
                 label: isDE ? 'E-Mail senden' : 'Send Email',
@@ -57,12 +56,14 @@ class ContactSection extends StatelessWidget {
                 semanticLabel: isDE ? 'E-Mail senden' : 'Send email',
                 onPressed: _sendEmail,
               ),
+              const SizedBox(width: 12),
               LinkButton(
                 label: 'GitHub',
                 icon: Icons.code_rounded,
                 semanticLabel: 'Open GitHub profile',
                 onPressed: () => _openUrl('https://github.com/jens-mayer'),
               ),
+              const SizedBox(width: 12),
               LinkButton(
                 label: 'LinkedIn',
                 icon: Icons.work_outline_rounded,
