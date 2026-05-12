@@ -16,7 +16,7 @@ jobs:
           channel: 'stable'
 
       - run: flutter pub get
-      - run: flutter build web --release
+      - run: flutter build web --release --web-renderer html
 
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
