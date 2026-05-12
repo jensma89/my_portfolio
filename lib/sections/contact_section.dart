@@ -15,7 +15,7 @@ class ContactSection extends StatelessWidget {
   // Email is assembled at runtime so it is never stored as a plain-text
   // string literal that is trivially scraped.
   static String get _email {
-    const parts = ['hello', '@', 'jensmayer', '.', 'dev'];
+    const parts = ['jensmayer', '89', '@', 'gmail', '.', 'com'];
     return parts.join();
   }
 
@@ -61,7 +61,7 @@ class ContactSection extends StatelessWidget {
                 label: 'GitHub',
                 icon: Icons.code_rounded,
                 semanticLabel: 'Open GitHub profile',
-                onPressed: () => _openUrl('https://github.com/jens-mayer'),
+                onPressed: () => _openUrl('https://github.com/jensma89'),
               ),
               const SizedBox(width: 12),
               LinkButton(
@@ -69,7 +69,7 @@ class ContactSection extends StatelessWidget {
                 icon: Icons.work_outline_rounded,
                 semanticLabel: 'Open LinkedIn profile',
                 onPressed: () =>
-                    _openUrl('https://linkedin.com/in/jens-mayer'),
+                    _openUrl('https://www.linkedin.com/in/jens-mayer-dev/'),
               ),
             ],
           ),
