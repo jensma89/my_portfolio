@@ -41,6 +41,7 @@ class LanguagesSection extends StatelessWidget {
     return PortfolioCard(
       semanticLabel: isDE ? 'Sprachen' : 'Languages',
       clipSize: 14,
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
@@ -49,7 +50,7 @@ class LanguagesSection extends StatelessWidget {
             isDE ? 'Sprachen' : 'Languages',
             style: AppTextStyles.sectionHeading(context),
           ),
-          const SizedBox(height: 14),
+          const SizedBox(height: 10),
           ...items.map((item) => _LangBar(item: item, isDE: isDE)),
         ],
       ),
@@ -87,7 +88,7 @@ class _LangBar extends StatelessWidget {
     return Semantics(
       label: '$name: $level',
       child: Padding(
-        padding: const EdgeInsets.only(bottom: 14),
+        padding: const EdgeInsets.only(bottom: 10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

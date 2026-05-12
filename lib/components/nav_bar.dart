@@ -1,8 +1,7 @@
 // lib/components/nav_bar.dart
-// Top nav bar — EN/DE locale toggle + dark/light theme toggle.
+// Top nav bar — EN/DE locale toggle + Dark/Light theme toggle.
 
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'buttons.dart';
 
 class PortfolioNavBar extends StatelessWidget implements PreferredSizeWidget {
@@ -28,18 +27,6 @@ class PortfolioNavBar extends StatelessWidget implements PreferredSizeWidget {
 
     return AppBar(
       automaticallyImplyLeading: false,
-      title: Semantics(
-        header: true,
-        label: 'Jens Mayer Portfolio',
-        child: Text(
-          'Jens Mayer',
-          style: GoogleFonts.spaceGrotesk(
-            fontSize: 16,
-            fontWeight: FontWeight.w700,
-            color: Theme.of(context).colorScheme.primary,
-          ),
-        ),
-      ),
       actions: [
         Row(
           mainAxisSize: MainAxisSize.min,
@@ -55,15 +42,19 @@ class PortfolioNavBar extends StatelessWidget implements PreferredSizeWidget {
               isSelected: isDE,
               onTap: isDE ? () {} : onLocaleToggle,
             ),
-            const SizedBox(width: 6),
-            IconToggleButton(
-              icon: isDarkMode ? Icons.dark_mode_rounded : Icons.light_mode_rounded,
-              onPressed: onThemeToggle,
-              semanticLabel:
-                  isDarkMode ? 'Switch to light mode' : 'Switch to dark mode',
-              isActive: true,
+            const SizedBox(width: 12),
+            LocaleChip(
+              label: 'Dark',
+              isSelected: isDarkMode,
+              onTap: isDarkMode ? () {} : onThemeToggle,
             ),
-            const SizedBox(width: 8),
+            const SizedBox(width: 4),
+            LocaleChip(
+              label: 'Light',
+              isSelected: !isDarkMode,
+              onTap: isDarkMode ? onThemeToggle : () {},
+            ),
+            const SizedBox(width: 12),
           ],
         ),
       ],

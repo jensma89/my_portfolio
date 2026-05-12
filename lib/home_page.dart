@@ -69,7 +69,10 @@ class _WideLayout extends StatelessWidget {
                   children: [
                     AboutSection(locale: locale),
                     const SizedBox(height: _kGap),
-                    LanguagesSection(locale: locale),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      child: LanguagesSection(locale: locale),
+                    ),
                   ],
                 ),
               ),
@@ -81,7 +84,13 @@ class _WideLayout extends StatelessWidget {
             ],
           ),
           const SizedBox(height: _kGap),
-          ContactSection(locale: locale),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: FractionallySizedBox(
+              widthFactor: 0.5,
+              child: ContactSection(locale: locale),
+            ),
+          ),
           FooterSection(locale: locale),
         ],
       ),
