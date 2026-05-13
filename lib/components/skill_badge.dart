@@ -14,6 +14,7 @@ class SkillBadge extends StatelessWidget {
   Widget build(BuildContext context) {
     return Semantics(
       label: label,
+      excludeSemantics: true,
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
         decoration: BoxDecoration(

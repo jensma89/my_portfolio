@@ -99,6 +99,7 @@ class _LangCircle extends StatelessWidget {
 
     return Semantics(
       label: '$name: $level',
+      excludeSemantics: true,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [

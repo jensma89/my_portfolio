@@ -127,6 +127,7 @@ class LocaleChip extends StatelessWidget {
       button: true,
       selected: isSelected,
       label: 'Switch to $label',
+      excludeSemantics: true,
       child: ConstrainedBox(
         constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
         child: GestureDetector(

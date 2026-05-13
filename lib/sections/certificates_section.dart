@@ -84,9 +84,7 @@ class _CertTile extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Semantics(
-              label: 'Certificate badge',
-              image: true,
+            ExcludeSemantics(
               child: Container(
                 width: 52,
                 height: 52,
