@@ -33,20 +33,18 @@
   <title>Jens Mayer – Portfolio</title>
   <link rel="manifest" href="manifest.json">
 
+  <style>
+    /* Allow pinch-to-zoom on mobile: Flutter sets touch-action:none on its
+       canvas via JS, but !important in a stylesheet beats normal inline styles. */
+    flt-glass-pane {
+      touch-action: pan-x pan-y pinch-zoom !important;
+    }
+  </style>
+
   <script>
-    // Allow native browser pinch-to-zoom by intercepting events before
-    // Flutter's canvas can consume and preventDefault them.
-    // Mac trackpad pinch → ctrl+wheel; mobile → multi-touch.
+    // Allow ctrl+scroll zoom on desktop (Mac trackpad pinch = ctrl+wheel).
     document.addEventListener('wheel', function(e) {
       if (e.ctrlKey) e.stopImmediatePropagation();
-    }, { capture: true, passive: true });
-
-    document.addEventListener('touchstart', function(e) {
-      if (e.touches.length > 1) e.stopImmediatePropagation();
-    }, { capture: true, passive: true });
-
-    document.addEventListener('touchmove', function(e) {
-      if (e.touches.length > 1) e.stopImmediatePropagation();
     }, { capture: true, passive: true });
   </script>
 </head>
