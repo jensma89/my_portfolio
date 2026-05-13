@@ -27,9 +27,8 @@ class PortfolioNavBar extends StatelessWidget implements PreferredSizeWidget {
 
     return AppBar(
       automaticallyImplyLeading: false,
-      leadingWidth: 116,
-      leading: Padding(
-        padding: const EdgeInsets.only(left: 12),
+      leadingWidth: 152,
+      leading: Center(
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [

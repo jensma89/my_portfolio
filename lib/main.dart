@@ -4,12 +4,20 @@
 // Starts in dark mode, English.
 
 import 'package:flutter/material.dart';
+import 'package:flutter/semantics.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'theme/theme.dart';
 import 'components/nav_bar.dart';
 import 'home_page.dart';
 
+// Keep the handle alive so the semantic tree stays active for the entire
+// session — this enables screen readers AND macOS Hover Text (cmd+hover).
+// ignore: unused_field
+SemanticsHandle? _semanticsHandle;
+
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  _semanticsHandle = SemanticsBinding.instance.ensureSemantics();
   runApp(const PortfolioApp());
 }
 
