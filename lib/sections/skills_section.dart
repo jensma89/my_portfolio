@@ -45,6 +45,10 @@ class SkillsSection extends StatelessWidget {
               SkillBadge(label: 'SQLAlchemy (ORM)', color: AppColors.badgeORM),
               SkillBadge(label: 'Git / GitHub', color: AppColors.badgeGit),
               SkillBadge(label: 'Unit Testing', color: AppColors.badgeTest),
+              SkillBadge(label: 'Linux', color: AppColors.badgeLinux),
+              SkillBadge(label: 'AWS', color: AppColors.badgeAWS),
+              SkillBadge(label: 'Infomaniak', color: AppColors.badgeInfomaniak),
+              SkillBadge(label: 'CI/CD', color: AppColors.badgeCICD),
             ],
           ),
           const Divider(height: 24, thickness: 1, indent: 10, endIndent: 10, color: Color(0x403A9BDC)),
@@ -60,7 +64,6 @@ class SkillsSection extends StatelessWidget {
               SkillBadge(label: 'MQTT', color: AppColors.badgeMQTT),
               SkillBadge(
                   label: 'Arduino / ESP32', color: AppColors.badgeHardware),
-              SkillBadge(label: 'Linux', color: AppColors.badgeLinux),
               SkillBadge(label: 'BLE Communication', color: AppColors.badgeBLE),
             ],
           ),

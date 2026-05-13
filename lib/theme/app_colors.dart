@@ -26,6 +26,9 @@ class AppColors {
   static const Color badgeRaspberryPi = Color(0xFFA22846);
   static const Color badgeLinux = Color(0xFFFCC624);
   static const Color badgeA11y = Color(0xFF9B59B6);
+  static const Color badgeAWS = Color(0xFFFF9900);
+  static const Color badgeInfomaniak = Color(0xFF3CB777);
+  static const Color badgeCICD = Color(0xFF2088FF);
 
   // Dark theme
   static const Color darkBackground = Color(0xFF1A1D23);
