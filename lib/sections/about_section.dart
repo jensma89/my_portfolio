@@ -55,7 +55,7 @@ class AboutSection extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 14),
+          const Divider(height: 24, thickness: 1, indent: 10, endIndent: 10, color: Color(0x403A9BDC)),
           Wrap(
             spacing: 8,
             runSpacing: 8,

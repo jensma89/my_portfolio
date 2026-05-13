@@ -221,7 +221,7 @@ class _ProjectTile extends StatelessWidget {
                   ),
               ],
             ),
-            const Divider(height: 24),
+            const Divider(height: 24, thickness: 1, indent: 10, endIndent: 10, color: Color(0x403A9BDC)),
           ],
         ),
       ),

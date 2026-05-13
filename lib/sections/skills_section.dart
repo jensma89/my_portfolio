@@ -47,7 +47,7 @@ class SkillsSection extends StatelessWidget {
               SkillBadge(label: 'Unit Testing', color: AppColors.badgeTest),
             ],
           ),
-          const SizedBox(height: 16),
+          const Divider(height: 24, thickness: 1, indent: 10, endIndent: 10, color: Color(0x403A9BDC)),
           Text(
             isDE ? 'IoT & Embedded Systeme' : 'IoT & Embedded Systems',
             style: AppTextStyles.cardTitle(context),
@@ -64,7 +64,7 @@ class SkillsSection extends StatelessWidget {
               SkillBadge(label: 'BLE Communication', color: AppColors.badgeBLE),
             ],
           ),
-          const SizedBox(height: 16),
+          const Divider(height: 24, thickness: 1, indent: 10, endIndent: 10, color: Color(0x403A9BDC)),
           Text(
             isDE ? 'Barrierefreiheit' : 'Accessibility',
             style: AppTextStyles.cardTitle(context),
