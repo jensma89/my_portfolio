@@ -105,18 +105,20 @@ class IconToggleButton extends StatelessWidget {
   }
 }
 
-// Locale toggle chip (EN / DE).
+// Locale toggle chip (EN / DE) and theme toggle chip (Dark / Light).
 class LocaleChip extends StatelessWidget {
   const LocaleChip({
     super.key,
     required this.label,
     required this.isSelected,
     required this.onTap,
+    this.leading,
   });
 
   final String label;
   final bool isSelected;
   final VoidCallback onTap;
+  final Widget? leading;
 
   @override
   Widget build(BuildContext context) {
@@ -124,7 +126,7 @@ class LocaleChip extends StatelessWidget {
     return Semantics(
       button: true,
       selected: isSelected,
-      label: 'Switch language to $label',
+      label: 'Switch to $label',
       child: ConstrainedBox(
         constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
         child: GestureDetector(
@@ -139,15 +141,32 @@ class LocaleChip extends StatelessWidget {
                 color: isSelected ? color : color.withValues(alpha: 0.4),
               ),
             ),
-            child: Text(
-              label,
-              style: GoogleFonts.spaceGrotesk(
-                fontSize: 13,
-                fontWeight: FontWeight.w600,
-                color: isSelected
-                    ? Colors.white
-                    : Theme.of(context).colorScheme.onSurface,
-              ),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                if (leading != null) ...[
+                  IconTheme(
+                    data: IconThemeData(
+                      color: isSelected
+                          ? Colors.white
+                          : Theme.of(context).colorScheme.onSurface,
+                      size: 14,
+                    ),
+                    child: leading!,
+                  ),
+                  const SizedBox(width: 5),
+                ],
+                Text(
+                  label,
+                  style: GoogleFonts.spaceGrotesk(
+                    fontSize: 13,
+                    fontWeight: FontWeight.w600,
+                    color: isSelected
+                        ? Colors.white
+                        : Theme.of(context).colorScheme.onSurface,
+                  ),
+                ),
+              ],
             ),
           ),
         ),
