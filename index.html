@@ -46,6 +46,22 @@
     document.addEventListener('wheel', function(e) {
       if (e.ctrlKey) e.stopImmediatePropagation();
     }, { capture: true, passive: true });
+
+    // Allow pinch-to-zoom on mobile.
+    // Flutter sets touch-action:none on flt-glass-pane via JS, so we watch for
+    // it and override with setProperty(...,'important') which wins over any JS.
+    (function () {
+      function patch() {
+        var pane = document.querySelector('flt-glass-pane');
+        if (pane) {
+          pane.style.setProperty('touch-action', 'pan-x pan-y pinch-zoom', 'important');
+          observer.disconnect();
+        }
+      }
+      var observer = new MutationObserver(patch);
+      observer.observe(document.documentElement, { childList: true, subtree: true });
+      window.addEventListener('load', patch);
+    })();
   </script>
 </head>
 <body>
