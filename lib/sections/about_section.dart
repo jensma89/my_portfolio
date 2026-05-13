@@ -16,12 +16,12 @@ class AboutSection extends StatelessWidget {
     final isDE = locale.languageCode == 'de';
 
     final hobbies = isDE
-        ? ['Programmieren', 'IoT', 'Elektronik', 'Musik', 'Wandern']
-        : ['Coding', 'IoT', 'Electronics', 'Music', 'Hiking'];
+        ? ['Programmieren', 'IoT', 'Aikido', 'Musikproduktion', 'Wandern']
+        : ['Coding', 'IoT', 'Aikido', 'Music Production', 'Hiking'];
 
     final bio = isDE
-        ? 'Backend- & IoT-Entwickler mit Leidenschaft für sauberen Code, verteilte Systeme und eingebettete Hardware.'
-        : 'Backend & IoT developer passionate about clean code, distributed systems, and embedded hardware.';
+        ? 'Backend- & IoT-Entwickler mit Fokus auf skalierbare Systeme, reale Produktentwicklung und technische Problemlösung. Besonders motiviert mich die Verbindung von Software, Hardware und Accessibility in sinnvollen Anwendungen mit echtem Mehrwert.'
+        : 'Backend & IoT developer focused on scalable systems, real-world product development, and technical problem-solving. Especially passionate about combining software, hardware, and accessibility into meaningful technology with real impact.';
 
     return PortfolioCard(
       semanticLabel: isDE ? 'Über mich' : 'About me',
@@ -70,8 +70,10 @@ class AboutSection extends StatelessWidget {
                         color: AppColors.accentBlue,
                       ),
                     ),
-                    backgroundColor: AppColors.accentBlue.withValues(alpha: 0.1),
-                    side: BorderSide(color: AppColors.accentBlue.withValues(alpha: 0.3)),
+                    backgroundColor:
+                        AppColors.accentBlue.withValues(alpha: 0.1),
+                    side: BorderSide(
+                        color: AppColors.accentBlue.withValues(alpha: 0.3)),
                     padding:
                         const EdgeInsets.symmetric(horizontal: 4, vertical: 0),
                     materialTapTargetSize: MaterialTapTargetSize.padded,
