@@ -7,7 +7,7 @@
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="description" content="Jens Mayer – Backend &amp; IoT Developer Portfolio">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
 
   <!-- iOS meta tags & icons -->
   <meta name="mobile-web-app-capable" content="yes">
@@ -33,6 +33,22 @@
   <title>Jens Mayer – Portfolio</title>
   <link rel="manifest" href="manifest.json">
 
+  <script>
+    // Allow native browser pinch-to-zoom by intercepting events before
+    // Flutter's canvas can consume and preventDefault them.
+    // Mac trackpad pinch → ctrl+wheel; mobile → multi-touch.
+    document.addEventListener('wheel', function(e) {
+      if (e.ctrlKey) e.stopImmediatePropagation();
+    }, { capture: true, passive: true });
+
+    document.addEventListener('touchstart', function(e) {
+      if (e.touches.length > 1) e.stopImmediatePropagation();
+    }, { capture: true, passive: true });
+
+    document.addEventListener('touchmove', function(e) {
+      if (e.touches.length > 1) e.stopImmediatePropagation();
+    }, { capture: true, passive: true });
+  </script>
 </head>
 <body>
   <script src="flutter_bootstrap.js" async></script>
