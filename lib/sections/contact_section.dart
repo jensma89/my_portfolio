@@ -15,7 +15,7 @@ class ContactSection extends StatelessWidget {
   // Email is assembled at runtime so it is never stored as a plain-text
   // string literal that is trivially scraped.
   static String get _email {
-    const parts = ['jensmayer', '89', '@', 'gmail', '.', 'com'];
+    const parts = ['contact', '@', 'jens-mayer', '.', 'dev'];
     return parts.join();
   }
 
