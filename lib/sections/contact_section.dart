@@ -47,31 +47,53 @@ class ContactSection extends StatelessWidget {
             style: AppTextStyles.sectionHeading(context),
           ),
           const SizedBox(height: 14),
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              LinkButton(
-                label: isDE ? 'E-Mail senden' : 'Send Email',
-                icon: Icons.mail_outline_rounded,
-                semanticLabel: isDE ? 'E-Mail senden' : 'Send email',
-                onPressed: _sendEmail,
-              ),
-              const SizedBox(width: 12),
-              LinkButton(
-                label: 'GitHub',
-                icon: Icons.code_rounded,
-                semanticLabel: 'Open GitHub profile',
-                onPressed: () => _openUrl('https://github.com/jensma89'),
-              ),
-              const SizedBox(width: 12),
-              LinkButton(
-                label: 'LinkedIn',
-                icon: Icons.work_outline_rounded,
-                semanticLabel: 'Open LinkedIn profile',
-                onPressed: () =>
-                    _openUrl('https://www.linkedin.com/in/jens-mayer-dev/'),
-              ),
-            ],
+          LayoutBuilder(
+            builder: (context, constraints) {
+              final useColumn = constraints.maxWidth < 480;
+              final buttons = [
+                LinkButton(
+                  label: isDE ? 'E-Mail senden' : 'Send Email',
+                  icon: Icons.mail_outline_rounded,
+                  semanticLabel: isDE ? 'E-Mail senden' : 'Send email',
+                  onPressed: _sendEmail,
+                ),
+                LinkButton(
+                  label: 'GitHub',
+                  icon: Icons.code_rounded,
+                  semanticLabel: 'Open GitHub profile',
+                  onPressed: () => _openUrl('https://github.com/jensma89'),
+                ),
+                LinkButton(
+                  label: 'LinkedIn',
+                  icon: Icons.work_outline_rounded,
+                  semanticLabel: 'Open LinkedIn profile',
+                  onPressed: () =>
+                      _openUrl('https://www.linkedin.com/in/jens-mayer-dev/'),
+                ),
+              ];
+              if (useColumn) {
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    buttons[0],
+                    const SizedBox(height: 10),
+                    buttons[1],
+                    const SizedBox(height: 10),
+                    buttons[2],
+                  ],
+                );
+              }
+              return Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  buttons[0],
+                  const SizedBox(width: 12),
+                  buttons[1],
+                  const SizedBox(width: 12),
+                  buttons[2],
+                ],
+              );
+            },
           ),
         ],
       ),

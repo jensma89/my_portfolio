@@ -1,8 +1,9 @@
 // lib/sections/certificates_section.dart
 // Certificates card — scrollable list with icon, title, and locale-aware download button.
 
+import 'dart:html' as html;
+
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 import '../components/portfolio_card.dart';
 import '../components/buttons.dart';
 import '../theme/theme.dart';
@@ -120,11 +121,10 @@ class _CertTile extends StatelessWidget {
             const SizedBox(width: 10),
             DownloadButton(
               label: isDE ? 'Laden' : 'Download',
-              onPressed: () async {
-                final uri = Uri.parse(downloadUrl);
-                if (await canLaunchUrl(uri)) {
-                  await launchUrl(uri, mode: LaunchMode.externalApplication);
-                }
+              onPressed: () {
+                html.AnchorElement(href: downloadUrl)
+                  ..setAttribute('download', '')
+                  ..click();
               },
             ),
           ],
