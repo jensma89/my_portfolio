@@ -47,7 +47,7 @@ class LanguagesSection extends StatelessWidget {
       clipSize: 14,
       padding: const EdgeInsets.fromLTRB(23, 14, 23, 18),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(

@@ -1,7 +1,7 @@
 // lib/sections/certificates_section.dart
 // Certificates card — scrollable list with icon, title, and locale-aware download button.
 
-import 'dart:html' as html;
+import 'package:web/web.dart' as web;
 
 import 'package:flutter/material.dart';
 import '../components/portfolio_card.dart';
@@ -19,10 +19,10 @@ class CertificatesSection extends StatelessWidget {
 
     const certs = [
       _CertItem(
-        titleEN: 'Certificate of Completion',
-        titleDE: 'Abschlusszertifikat',
-        issuer: 'IT-Weiterbildung',
-        year: '2024',
+        titleEN: 'Backend Engineering Certificate',
+        titleDE: 'Backend Engineering Zertifikat',
+        issuer: 'MSIT (Masterschool Institute of Technology)',
+        year: '2026',
         downloadUrlEN: 'assets/assets/certificates/jens_mayer_CoC_EN.pdf',
         downloadUrlDE: 'assets/assets/certificates/jens_mayer_CoC_DE.pdf',
       ),
@@ -122,7 +122,8 @@ class _CertTile extends StatelessWidget {
             DownloadButton(
               label: isDE ? 'Laden' : 'Download',
               onPressed: () {
-                html.AnchorElement(href: downloadUrl)
+                web.HTMLAnchorElement()
+                  ..href = downloadUrl
                   ..setAttribute('download', '')
                   ..click();
               },

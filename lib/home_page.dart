@@ -55,14 +55,17 @@ class _WideLayout extends StatelessWidget {
             children: [
               // Left column: Skills + Certificates
               Expanded(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    const SizedBox(height: 18),
-                    SkillsSection(locale: locale),
-                    const SizedBox(height: 28),
-                    CertificatesSection(locale: locale),
-                  ],
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 25),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const SizedBox(height: 18),
+                      SkillsSection(locale: locale),
+                      const SizedBox(height: 28),
+                      CertificatesSection(locale: locale),
+                    ],
+                  ),
                 ),
               ),
               const SizedBox(width: _kGap),
@@ -84,11 +87,11 @@ class _WideLayout extends StatelessWidget {
               // Right column: Projects
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 10),
+                  padding: const EdgeInsets.only(left: 20),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      const SizedBox(height: 40),
+                      const SizedBox(height: 35),
                       ProjectsSection(locale: locale),
                     ],
                   ),
@@ -133,7 +136,6 @@ class _NarrowLayout extends StatelessWidget {
           const SizedBox(height: _kGap),
           CertificatesSection(locale: locale),
           const SizedBox(height: _kGap),
-          const SizedBox(height: 20),
           ProjectsSection(locale: locale),
           const SizedBox(height: _kGap),
           Center(
