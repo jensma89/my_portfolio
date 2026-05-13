@@ -19,52 +19,51 @@ class ProjectsSection extends StatelessWidget {
 
     const projects = [
       _Project(
-        titleEN: 'Home Automation Hub',
-        titleDE: 'Heimautomatisierungs-Hub',
+        titleEN: 'Revost - Lock and Load',
+        titleDE: 'Revost - Lock and Load',
         descEN:
-            'Self-hosted MQTT broker and web dashboard for managing IoT devices across a Raspberry Pi cluster.',
+            'Real-time IoT infrastructure system connecting embedded devices, backend services and dashboards for a smart bike network across multiple stations.',
         descDE:
-            'Selbst gehosteter MQTT-Broker mit Web-Dashboard zur Verwaltung von IoT-Geräten auf einem Raspberry-Pi-Cluster.',
-        tags: ['Python', 'MQTT', 'Raspberry Pi', 'Linux'],
+            'Echtzeit-IoT-Infrastruktursystem zur Verbindung von Embedded Devices, Backend-Services und Dashboards für ein Smart-Bike-Netzwerk über mehrere Stationen.',
+        tags: [
+          'Python',
+          'Go',
+          'FastAPI',
+          'MQTT',
+          'Arduino / ESP32',
+        ],
         tagColors: [
           AppColors.badgePython,
-          AppColors.badgeMQTT,
-          AppColors.badgeRaspberryPi,
-          AppColors.badgeLinux,
-        ],
-        githubUrl: 'https://github.com/jens-mayer',
-        hasTerminal: true,
-      ),
-      _Project(
-        titleEN: 'FastAPI Boilerplate',
-        titleDE: 'FastAPI Boilerplate',
-        descEN:
-            'Production-ready project template with Docker Compose, async SQLAlchemy, JWT auth, and CI/CD pipelines.',
-        descDE:
-            'Produktionsfertiges Projekttemplate mit Docker Compose, async SQLAlchemy, JWT-Auth und CI/CD-Pipelines.',
-        tags: ['FastAPI', 'Docker', 'Python'],
-        tagColors: [
+          AppColors.badgeGo,
           AppColors.badgeFastAPI,
-          AppColors.badgeDocker,
-          AppColors.badgePython,
+          AppColors.badgeMQTT,
+          AppColors.badgeHardware,
         ],
-        githubUrl: 'https://github.com/jens-mayer',
+        githubUrl: 'https://revost.nl/',
         hasTerminal: false,
       ),
       _Project(
-        titleEN: 'Go Microservice Toolkit',
-        titleDE: 'Go-Microservice-Toolkit',
+        titleEN: 'Mythic Access DnD API (MVP)',
+        titleDE: 'Mythic Access DnD API (MVP)',
         descEN:
-            'Lightweight toolkit for Go microservices with structured logging, health checks, and graceful shutdown.',
+            'Accessible backend API for tabletop RPG systems designed for visually impaired users, enabling structured and screen-reader friendly game data access and management.',
         descDE:
-            'Leichtgewichtiges Toolkit für Go-Microservices mit strukturiertem Logging, Health-Checks und Graceful Shutdown.',
-        tags: ['Go', 'Docker', 'Linux'],
-        tagColors: [
-          AppColors.badgeGo,
-          AppColors.badgeDocker,
-          AppColors.badgeLinux,
+            'Barrierefreie Backend-API für ein Tabletop-RPG-System, entwickelt für sehbehinderte Nutzer mit strukturierter und screenreader-optimierter Datenzugriff-Architektur.',
+        tags: [
+          'Python',
+          'FastAPI',
+          'PostgreSQL / SQLAlchemy',
+          'Docker',
+          'JWT',
         ],
-        githubUrl: 'https://github.com/jens-mayer',
+        tagColors: [
+          AppColors.badgePython,
+          AppColors.badgeFastAPI,
+          AppColors.badgeDB,
+          AppColors.badgeDocker,
+          AppColors.badgeTest,
+        ],
+        githubUrl: 'https://github.com/jensma89/mythic-access-dnd',
         hasTerminal: false,
       ),
     ];
@@ -130,7 +129,11 @@ class _ProjectTile extends StatelessWidget {
     final desc = isDE ? project.descDE : project.descEN;
     final terminalLabel =
         isDE ? 'Terminal öffnen für $title' : 'Open terminal for $title';
-    final githubLabel = 'Open $title on GitHub';
+    final isGitHub = project.githubUrl.contains('github.com');
+    final linkIcon = isGitHub ? Icons.code_rounded : Icons.open_in_new_rounded;
+    final linkLabel = isGitHub
+        ? 'Open $title on GitHub'
+        : (isDE ? '$title Website öffnen' : 'Open $title website');
 
     return Semantics(
       label: title,
@@ -145,11 +148,11 @@ class _ProjectTile extends StatelessWidget {
                 Expanded(
                   child: Text(title, style: AppTextStyles.cardTitle(context)),
                 ),
-                // GitHub icon button
+                // GitHub / website icon button
                 Semantics(
                   button: true,
                   link: true,
-                  label: githubLabel,
+                  label: linkLabel,
                   child: ConstrainedBox(
                     constraints:
                         const BoxConstraints(minWidth: 48, minHeight: 48),
@@ -160,7 +163,7 @@ class _ProjectTile extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.all(10),
                         child: Icon(
-                          Icons.code_rounded,
+                          linkIcon,
                           size: 18,
                           color: Theme.of(context).colorScheme.primary,
                         ),
@@ -221,7 +224,12 @@ class _ProjectTile extends StatelessWidget {
                   ),
               ],
             ),
-            const Divider(height: 24, thickness: 1, indent: 10, endIndent: 10, color: Color(0x403A9BDC)),
+            const Divider(
+                height: 24,
+                thickness: 1,
+                indent: 10,
+                endIndent: 10,
+                color: Color(0x403A9BDC)),
           ],
         ),
       ),
