@@ -47,9 +47,10 @@ class ContactSection extends StatelessWidget {
             style: AppTextStyles.sectionHeading(context),
           ),
           const SizedBox(height: 14),
-          LayoutBuilder(
-            builder: (context, constraints) {
-              final useColumn = constraints.maxWidth < 480;
+          Builder(
+            builder: (context) {
+              final screenWidth = MediaQuery.of(context).size.width;
+              final useColumn = screenWidth < 600;
               final buttons = [
                 LinkButton(
                   label: isDE ? 'E-Mail senden' : 'Send Email',
@@ -84,7 +85,7 @@ class ContactSection extends StatelessWidget {
                 );
               }
               return Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   buttons[0],
                   const SizedBox(width: 12),

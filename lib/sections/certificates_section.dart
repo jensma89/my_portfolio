@@ -23,8 +23,8 @@ class CertificatesSection extends StatelessWidget {
         titleDE: 'Abschlusszertifikat',
         issuer: 'IT-Weiterbildung',
         year: '2024',
-        downloadUrlEN: 'assets/certificates/jens_mayer_CoC_EN.pdf',
-        downloadUrlDE: 'assets/certificates/jens_mayer_CoC_DE.pdf',
+        downloadUrlEN: 'assets/assets/certificates/jens_mayer_CoC_EN.pdf',
+        downloadUrlDE: 'assets/assets/certificates/jens_mayer_CoC_DE.pdf',
       ),
     ];
 
