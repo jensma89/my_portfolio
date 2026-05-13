@@ -78,6 +78,9 @@ class PortfolioCard extends StatelessWidget {
           clipSize: clipSize,
           borderColor: colors.primary,
           fillColor: isDark ? AppColors.darkCard : AppColors.lightCard,
+          shadowColor: isDark
+              ? const Color(0xFFFFFFFF)
+              : const Color(0xFF2E2E2E),
         ),
         child: ClipPath(
           clipper: _DiagonalCornerClipper(clipSize: clipSize),
@@ -129,11 +132,13 @@ class _ClippedBorderPainter extends CustomPainter {
     required this.clipSize,
     required this.borderColor,
     required this.fillColor,
+    required this.shadowColor,
   });
 
   final double clipSize;
   final Color borderColor;
   final Color fillColor;
+  final Color shadowColor;
 
   Path _buildPath(Size size) {
     final c = clipSize;
@@ -152,6 +157,15 @@ class _ClippedBorderPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final path = _buildPath(size);
+
+    // Subtle bottom-right elevation hint
+    canvas.drawPath(
+      path.shift(const Offset(4, 5)),
+      Paint()
+        ..color = shadowColor.withValues(alpha: 0.09)
+        ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 8),
+    );
+
     canvas.drawPath(path, Paint()..color = fillColor);
     canvas.drawPath(
       path,
@@ -166,5 +180,6 @@ class _ClippedBorderPainter extends CustomPainter {
   bool shouldRepaint(_ClippedBorderPainter old) =>
       old.clipSize != clipSize ||
       old.borderColor != borderColor ||
-      old.fillColor != fillColor;
+      old.fillColor != fillColor ||
+      old.shadowColor != shadowColor;
 }
