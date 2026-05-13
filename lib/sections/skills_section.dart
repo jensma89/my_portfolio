@@ -43,7 +43,7 @@ class SkillsSection extends StatelessWidget {
               SkillBadge(label: 'Docker', color: AppColors.badgeDocker),
               SkillBadge(label: 'PostgreSQL', color: AppColors.badgeDB),
               SkillBadge(label: 'SQLAlchemy (ORM)', color: AppColors.badgeORM),
-              SkillBadge(label: 'Git', color: AppColors.badgeGit),
+              SkillBadge(label: 'Git / GitHub', color: AppColors.badgeGit),
               SkillBadge(label: 'Unit Testing', color: AppColors.badgeTest),
             ],
           ),
@@ -74,9 +74,14 @@ class SkillsSection extends StatelessWidget {
             spacing: 8,
             runSpacing: 8,
             children: [
-              SkillBadge(label: 'Screen Reader Awareness', color: AppColors.badgeA11y),
-              SkillBadge(label: 'Braille Navigation Experience', color: AppColors.badgeA11y),
-              SkillBadge(label: 'Flutter Accessibility Basics', color: AppColors.badgeA11y),
+              SkillBadge(
+                  label: 'Screen Reader Awareness', color: AppColors.badgeA11y),
+              SkillBadge(
+                  label: 'Braille Navigation Experience',
+                  color: AppColors.badgeA11y),
+              SkillBadge(
+                  label: 'Flutter Accessibility Basics',
+                  color: AppColors.badgeA11y),
             ],
           ),
         ],

@@ -11,15 +11,15 @@ class AppColors {
 
   // Skill badge colors
   static const Color badgeGreen = Color(0xFF27AE60);
-  static const Color badgePython = Color(0xFF3572A5);
+  static const Color badgePython = Color(0xFF5A9FD4);
   static const Color badgeGo = Color(0xFF00ADD8);
   static const Color badgeFastAPI = Color(0xFF009688);
-  static const Color badgeAPI = Color(0xFF6C5CE7);
-  static const Color badgeDB = Color(0xFF336791);
+  static const Color badgeAPI = Color(0xFF9B8EF5);
+  static const Color badgeDB = Color(0xFF5B9BD5);
   static const Color badgeORM = Color(0xFFCC2927);
   static const Color badgeGit = Color(0xFFF05032);
   static const Color badgeTest = Color(0xFF27AE60);
-  static const Color badgeMQTT = Color(0xFF660066);
+  static const Color badgeMQTT = Color(0xFFBB55CC);
   static const Color badgeDocker = Color(0xFF2496ED);
   static const Color badgeHardware = Color(0xFF00979D);
   static const Color badgeBLE = Color(0xFF0082FC);
