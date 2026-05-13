@@ -50,9 +50,12 @@ class LanguagesSection extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text(
-            isDE ? 'Sprachen' : 'Languages',
-            style: AppTextStyles.sectionHeading(context),
+          Semantics(
+            header: true,
+            child: Text(
+              isDE ? 'Sprachen' : 'Languages',
+              style: AppTextStyles.sectionHeading(context),
+            ),
           ),
           const SizedBox(height: 16),
           Row(
@@ -99,8 +102,8 @@ class _LangCircle extends StatelessWidget {
 
     return Semantics(
       label: '$name: $level',
-      excludeSemantics: true,
-      child: Column(
+      child: ExcludeSemantics(
+        child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           SizedBox(
@@ -145,6 +148,7 @@ class _LangCircle extends StatelessWidget {
             ),
           ),
         ],
+        ),
       ),
     );
   }

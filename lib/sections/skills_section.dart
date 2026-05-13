@@ -22,9 +22,12 @@ class SkillsSection extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text(
-            isDE ? 'Fähigkeiten' : 'Skills',
-            style: AppTextStyles.sectionHeading(context),
+          Semantics(
+            header: true,
+            child: Text(
+              isDE ? 'Fähigkeiten' : 'Skills',
+              style: AppTextStyles.sectionHeading(context),
+            ),
           ),
           const SizedBox(height: 14),
           Text(

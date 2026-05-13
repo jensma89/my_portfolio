@@ -42,9 +42,12 @@ class ContactSection extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text(
-            isDE ? 'Kontakt' : 'Contact',
-            style: AppTextStyles.sectionHeading(context),
+          Semantics(
+            header: true,
+            child: Text(
+              isDE ? 'Kontakt' : 'Contact',
+              style: AppTextStyles.sectionHeading(context),
+            ),
           ),
           const SizedBox(height: 14),
           Builder(

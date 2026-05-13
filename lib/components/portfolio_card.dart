@@ -71,7 +71,6 @@ class PortfolioCard extends StatelessWidget {
     }
 
     return Semantics(
-      label: semanticLabel ?? title,
       container: true,
       child: CustomPaint(
         painter: _ClippedBorderPainter(

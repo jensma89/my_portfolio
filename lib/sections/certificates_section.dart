@@ -36,9 +36,12 @@ class CertificatesSection extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            isDE ? 'Zertifikate' : 'Certificates',
-            style: AppTextStyles.sectionHeading(context),
+          Semantics(
+            header: true,
+            child: Text(
+              isDE ? 'Zertifikate' : 'Certificates',
+              style: AppTextStyles.sectionHeading(context),
+            ),
           ),
           const SizedBox(height: 12),
           ...certs.map((c) => _CertTile(cert: c, isDE: isDE)),

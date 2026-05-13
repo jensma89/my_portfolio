@@ -76,9 +76,12 @@ class ProjectsSection extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            isDE ? 'Projekte' : 'Projects',
-            style: AppTextStyles.sectionHeading(context),
+          Semantics(
+            header: true,
+            child: Text(
+              isDE ? 'Projekte' : 'Projects',
+              style: AppTextStyles.sectionHeading(context),
+            ),
           ),
           const SizedBox(height: 12),
           ...projects.map((p) => _ProjectTile(project: p, isDE: isDE)),
